@@ -1,14 +1,12 @@
 
-// src/lib/auth.js
 import { betterAuth } from "better-auth";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
-import { connectDB } from "./mongodb.js";
-import { google } from "better-auth/social-providers";
+import { connectDB } from "./mongodb"; // ✅ correct import
 
 export const auth = betterAuth({
   database: mongodbAdapter(async () => {
     const conn = await connectDB();
-    return conn.connection.db;
+    return conn.connection.db; // ✅ mongoose → native db
   }),
 
   emailAndPassword: {
@@ -23,5 +21,5 @@ export const auth = betterAuth({
     },
   },
 
-  baseURL: process.env.BETTER_AUTH_URL || "http://localhost:3000",
+  baseURL: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
 });
