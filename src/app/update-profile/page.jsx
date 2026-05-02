@@ -1,70 +1,73 @@
-"use client";
 
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+// src/app/my-profile/update/page.jsx
+'use client';
+
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 
 export default function UpdateProfile() {
-  const [user, setUser] = useState(null);
+  const [name, setName] = useState('');
+  const [image, setImage] = useState('');
   const router = useRouter();
 
   useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    setUser(storedUser);
+    const saved = localStorage.getItem('user');
+    if (saved) {
+      const u = JSON.parse(saved);
+      setName(u.name || '');
+      setImage(u.image || '');
+    }
   }, []);
 
-  const handleUpdate = async (e) => {
+  const handleUpdate = (e) => {
     e.preventDefault();
 
-    const name = e.target.name.value;
-    const photo = e.target.photo.value;
+    const currentUser = JSON.parse(localStorage.getItem('user') || '{}');
+    const updatedUser = { ...currentUser, name, image };
 
-    const res = await fetch("/api/auth/update", {
-      method: "PUT",
-      body: JSON.stringify({
-        email: user.email,
-        name,
-        photo,
-      }),
-    });
+    localStorage.setItem('user', JSON.stringify(updatedUser));
 
-    if (res.ok) {
-      const updatedUser = await res.json();
-
-      localStorage.setItem("user", JSON.stringify(updatedUser));
-
-      alert("Profile Updated ✅");
-      router.push("/my-profile");
-    } else {
-      alert("Update Failed ❌");
-    }
+    toast.success("Profile Updated Successfully!");
+    router.push('/my-profile');
   };
 
-  if (!user) return <p>Loading...</p>;
-
   return (
-    <div className="flex justify-center items-center min-h-screen">
-      <form
-        onSubmit={handleUpdate}
-        className="bg-white p-8 rounded shadow w-96"
-      >
-        <h2 className="text-xl font-bold mb-4">Update Profile</h2>
+    <div className="max-w-md mx-auto px-6 py-16">
+      <div className="bg-white rounded-3xl shadow-xl p-10">
+        <h1 className="text-3xl font-bold mb-8 text-center">Update Profile</h1>
 
-        <input
-          name="name"
-          defaultValue={user.name}
-          className="w-full p-2 border mb-4"
-        />
+        <form onSubmit={handleUpdate} className="space-y-6">
+          <div>
+            <label className="block text-sm font-medium mb-2">Name</label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full px-5 py-3 border border-gray-300 rounded-2xl"
+              required
+            />
+          </div>
 
-        <input
-          name="photo"
-          defaultValue={user.photo}
-          className="w-full p-2 border mb-4"
-        />
+          <div>
+            <label className="block text-sm font-medium mb-2">Photo URL</label>
+            <input
+              type="text"
+              value={image}
+              onChange={(e) => setImage(e.target.value)}
+              className="w-full px-5 py-3 border border-gray-300 rounded-2xl"
+              placeholder="./pic.jpg"
+            />
+          </div>
 
-        <button className="bg-blue-600 text-white px-4 py-2 rounded w-full">
-          Update Information
-        </button>
-      </form>
+          <button
+            type="submit"
+            className="w-full bg-emerald-700 hover:bg-emerald-800 text-white py-4 rounded-2xl font-semibold text-lg"
+          >
+            Update Information
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

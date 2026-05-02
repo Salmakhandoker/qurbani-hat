@@ -1,37 +1,45 @@
+// src/app/my-profile/page.jsx
+'use client';
 
-"use client";
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-
-export default function Profile() {
+export default function MyProfile() {
   const [user, setUser] = useState(null);
   const router = useRouter();
 
   useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    setUser(storedUser);
-  }, []);
+    const savedUser = localStorage.getItem('user');
+    if (savedUser) {
+      setUser(JSON.parse(savedUser));
+    } else {
+      router.push('/login');
+    }
+  }, [router]);
 
-  if (!user) return <p className="text-center mt-10">Not Logged In</p>;
+  if (!user) {
+    return <div className="text-center py-20">Loading profile...</div>;
+  }
 
   return (
-    <div className="flex justify-center mt-10">
-      <div className="bg-white p-6 rounded shadow w-80 text-center">
-        <img
-          src={user.photo}
-          className="w-20 h-20 rounded-full mx-auto mb-4"
+    <div className="max-w-2xl mx-auto px-6 py-16">
+      <div className="bg-white rounded-3xl shadow-2xl p-12 text-center">
+        <img src='./pic.jpg'
+          // src={user.image || "https://via.placeholder.com/150"} 
+          alt="Profile" 
+          className="w-40 h-40 rounded-full mx-auto border-4 border-emerald-200 mb-8 object-cover"
         />
+        
+        <h1 className="text-4xl font-bold mb-3">{user.name}</h1>
+        <p className="text-gray-600 text-xl mb-12">{user.email}</p>
 
-        <h2 className="text-xl font-bold">{user.name}</h2>
-        <p className="text-gray-600">{user.email}</p>
-
-        <button
-          onClick={() => router.push("/update-profile")}
-          className="mt-4 bg-green-600 text-white px-4 py-2 rounded"
+        <Link 
+          href="/my-profile/update"
+          className="inline-block bg-emerald-700 hover:bg-emerald-800 text-white px-12 py-4 rounded-2xl text-lg font-semibold transition"
         >
           Update Profile
-        </button>
+        </Link>
       </div>
     </div>
   );

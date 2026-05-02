@@ -1,7 +1,8 @@
 
 // src/app/page.jsx
 'use client';
-
+import Lottie from 'lottie-react';
+import qurbaniAnimation from '@/data/qurbani-animation.json';
 import Link from 'next/link';
 import AnimalCard from '@/components/AnimalCard';
 
@@ -71,7 +72,7 @@ export default function Home() {
             </h1>
 
             <p className="text-xl text-gray-200 mb-10">
-              সহজে ও নির্ভরযোগ্যভাবে গরু ও ছাগল বুক করুন।<br />
+             Book cows and goats easily and reliably.<br />
               Trusted farmers • Healthy animals • Best price in Bangladesh
             </p>
 
@@ -92,6 +93,18 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
+<div className="py-16 bg-white">
+  <div className="max-w-4xl mx-auto text-center px-6">
+    <Lottie 
+      animationData={qurbaniAnimation} 
+      loop={true} 
+      className="w-80 h-80 mx-auto"
+    />
+    <h2 className="text-3xl font-bold mt-6">Qurbani 2026</h2>
+    <p className="text-gray-600 mt-3">A blessed journey with trust and care</p>
+  </div>
+</div>
 
       {/* Featured Animals Section - Fixed & Smooth */}
       <section id="featured" className="py-20 bg-gray-50">

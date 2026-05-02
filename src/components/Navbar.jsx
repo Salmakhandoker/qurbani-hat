@@ -28,8 +28,8 @@ export default function Navbar() {
         {user ? (
           <>
             {/* Avatar */}
-            <img
-              src={user.photo || "/avatar.png"}
+            <img src="./pic.jpg"
+              // src={user.photo || "/avatar.png"}
               className="w-10 h-10 rounded-full border"
               alt="user"
             />

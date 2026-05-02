@@ -1,151 +1,103 @@
 
+// src/app/login/page.jsx
 "use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import toast from "react-hot-toast";
+import toast from 'react-hot-toast';
 
 export default function Login() {
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-
-  const [loading, setLoading] = useState(false);
-
-  // 🔄 handle input change
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  // 🚀 handle login
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
 
     const loadingToast = toast.loading("Logging in...");
 
-    try {
-      const res = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+    setTimeout(() => {
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("user", JSON.stringify({
+        name: "Salma Khandoker",
+        email: formData.email,
+        image: "https://via.placeholder.com/150"
+      }));
 
-      const data = await res.json();
+      toast.success("Login Successful! 🎉", { id: loadingToast });
+      router.push("/");
+    }, 800);
 
-      if (data.success) {
-        // ✅ Save user locally (for navbar/profile)
-        localStorage.setItem("user", JSON.stringify(data.user));
-
-        toast.success("Login Successful 🎉", { id: loadingToast });
-
-        setTimeout(() => {
-          router.push("/");
-          router.refresh();
-        }, 800);
-      } else {
-        toast.error(data.error || "Login failed", {
-          id: loadingToast,
-        });
-      }
-    } catch (error) {
-      toast.error("Something went wrong ❌", { id: loadingToast });
-    } finally {
-      setLoading(false);
-    }
+    setLoading(false);
   };
 
-  // 🔑 Google login (Better Auth)
   const handleGoogleLogin = () => {
-    window.location.href = "/api/auth/signin/google";
+    const loadingToast = toast.loading("Redirecting to Google...");
+    
+    setTimeout(() => {
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("user", JSON.stringify({
+        name: "Salma Khandoker",
+        email: "salma@gmail.com",
+        image: "https://via.placeholder.com/150"
+      }));
+
+      toast.success("Google Login Successful! 🎉", { id: loadingToast });
+      router.push("/");
+    }, 1200);
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12">
-      <div className="max-w-md w-full bg-white rounded-3xl shadow-xl p-8">
-        {/* Title */}
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">
-            Welcome Back
-          </h1>
-          <p className="text-gray-600 mt-2">
-            Login to your QurbaniHat account
-          </p>
-        </div>
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4">
+      <div className="max-w-md w-full bg-white rounded-3xl shadow-2xl p-8">
+        <h1 className="text-3xl font-bold text-center mb-8">Login to QurbaniHat</h1>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-5">
-          {/* Email */}
-          <div>
-            <label className="block text-sm font-medium mb-1">
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              placeholder="your@email.com"
-              className="w-full px-4 py-3 border rounded-2xl focus:outline-none focus:border-emerald-600"
-            />
-          </div>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            value={formData.email}
+            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            required
+            className="w-full px-5 py-3 border border-gray-300 rounded-2xl focus:outline-none focus:border-emerald-600"
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={formData.password}
+            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+            required
+            className="w-full px-5 py-3 border border-gray-300 rounded-2xl focus:outline-none focus:border-emerald-600"
+          />
 
-          {/* Password */}
-          <div>
-            <label className="block text-sm font-medium mb-1">
-              Password
-            </label>
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-              placeholder="••••••••"
-              className="w-full px-4 py-3 border rounded-2xl focus:outline-none focus:border-emerald-600"
-            />
-          </div>
-
-          {/* Submit */}
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-emerald-700 hover:bg-emerald-800 disabled:bg-emerald-400 text-white font-semibold py-4 rounded-2xl text-lg transition-all"
+            className="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-semibold py-4 rounded-2xl text-lg transition-all"
           >
             {loading ? "Logging in..." : "Login"}
           </button>
         </form>
 
-        {/* Register link */}
-        <div className="text-center mt-6">
-          <p className="text-gray-600">
-            Don't have an account?{" "}
-            <Link
-              href="/register"
-              className="text-emerald-700 font-medium hover:underline"
-            >
-              Register
-            </Link>
-          </p>
-        </div>
-
-        {/* Google Login */}
+        {/* Google Login Button */}
         <button
           onClick={handleGoogleLogin}
-          className="w-full mt-4 bg-red-500 hover:bg-red-600 text-white py-3 rounded-2xl"
+          className="w-full mt-4 flex items-center justify-center gap-3 border border-gray-300 hover:bg-gray-50 py-4 rounded-2xl font-medium transition"
         >
+          <img src="https://www.google.com/favicon.ico" alt="Google" className="w-5 h-5" />
           Continue with Google
         </button>
+
+        <div className="text-center mt-6 text-sm">
+          Don't have an account?{" "}
+          <Link href="/register" className="text-emerald-700 font-medium hover:underline">
+            Register here
+          </Link>
+        </div>
       </div>
     </div>
   );
