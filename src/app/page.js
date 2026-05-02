@@ -1,65 +1,126 @@
-import Image from "next/image";
+
+// src/app/page.jsx
+'use client';
+
+import Link from 'next/link';
+import AnimalCard from '@/components/AnimalCard';
+
+const featuredAnimals = [
+  {
+    id: 1,
+    name: "Deshi Shahi Cow",
+    breed: "Local Deshi",
+    price: 125000,
+    location: "Bogura",
+    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=800",
+    category: "Large Animal"
+  },
+  {
+    id: 2,
+    name: "Jamunapari Goat",
+    breed: "Jamunapari",
+    price: 28500,
+    location: "Sirajganj",
+    image: "https://images.unsplash.com/photo-1587502536900-baf0c55a17c9?q=80&w=800",
+    category: "Small Animal"
+  },
+  {
+    id: 3,
+    name: "Red Chittagong Cow",
+    breed: "Red Chittagong",
+    price: 98000,
+    location: "Comilla",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800",
+    category: "Large Animal"
+  },
+  {
+    id: 4,
+    name: "Black Bengal Goat",
+    breed: "Black Bengal",
+    price: 19500,
+    location: "Comilla",
+    image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=800",
+    category: "Small Animal"
+  }
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="min-h-screen">
+      {/* Professional Hero Banner */}
+      <section className="relative h-screen flex items-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.72)), 
+                             url('https://images.unsplash.com/photo-1587502536900-baf0c55a17c9?q=80&w=2000')`
+          }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+
+        <div className="absolute inset-0 bg-[radial-gradient(#ffffff15_1px,transparent_1px)] bg-[length:50px_50px]" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 pt-16">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full text-white mb-6 border border-white/20">
+              🕌 Qurbani 2026 Season
+            </div>
+
+            <h1 className="text-6xl md:text-7xl font-bold text-white leading-tight mb-6">
+              Find Your Perfect<br />
+              <span className="text-amber-300">Qurbani Animal</span>
+            </h1>
+
+            <p className="text-xl text-gray-200 mb-10">
+              সহজে ও নির্ভরযোগ্যভাবে গরু ও ছাগল বুক করুন।<br />
+              Trusted farmers • Healthy animals • Best price in Bangladesh
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link 
+                href="/animals"
+                className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-10 py-4 rounded-2xl text-lg transition-all flex items-center justify-center gap-2"
+              >
+                Browse All Animals →
+              </Link>
+              <Link 
+                href="#featured"
+                className="border border-white/70 hover:bg-white/10 text-white font-medium px-8 py-4 rounded-2xl text-lg transition-all"
+              >
+                See Featured
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Featured Animals Section - Fixed & Smooth */}
+      <section id="featured" className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <p className="text-emerald-600 font-medium tracking-widest text-sm">HANDPICKED FOR YOU</p>
+            <h2 className="text-4xl font-bold text-gray-900 mt-3">Featured This Season</h2>
+            <p className="text-gray-600 mt-4 max-w-md mx-auto">
+              Premium quality animals carefully selected from trusted farms
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {featuredAnimals.map((animal) => (
+              <AnimalCard key={animal.id} animal={animal} />
+            ))}
+          </div>
+
+          <div className="text-center mt-16">
+            <Link 
+              href="/animals"
+              className="inline-flex items-center gap-3 bg-emerald-700 hover:bg-emerald-800 text-white font-semibold px-10 py-4 rounded-2xl text-lg transition-all duration-300"
+            >
+              View All Animals 
+              <span>→</span>
+            </Link>
+          </div>
         </div>
-      </main>
+      </section>
     </div>
   );
 }

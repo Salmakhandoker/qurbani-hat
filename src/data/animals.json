@@ -1,0 +1,81 @@
+
+[
+  {
+    "id": 1,
+    "name": "Deshi Shahi Cow",
+    "type": "Cow",
+    "breed": "Local Deshi",
+    "price": 125000,
+    "weight": 280,
+    "age": 3,
+    "location": "Bogura",
+    "description": "Healthy deshi cow suitable for Qurbani. Well fed with natural feed.",
+    "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96",
+    "category": "Large Animal"
+  },
+  {
+    "id": 2,
+    "name": "Jamunapari Goat",
+    "type": "Goat",
+    "breed": "Jamunapari",
+    "price": 28500,
+    "weight": 45,
+    "age": 2,
+    "location": "Sirajganj",
+    "description": "Beautiful Jamunapari goat with excellent health.",
+    "image": "https://images.unsplash.com/photo-1587502536900-baf0c55a17c9",
+    "category": "Small Animal"
+  },
+  {
+    "id": 3,
+    "name": "Red Chittagong Cow",
+    "type": "Cow",
+    "breed": "Red Chittagong",
+    "price": 98000,
+    "weight": 260,
+    "age": 4,
+    "location": "Comilla",
+    "description": "Pure Red Chittagong breed, very healthy and strong.",
+    "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+    "category": "Large Animal"
+  },
+  {
+    "id": 4,
+    "name": "Black Bengal Goat",
+    "type": "Goat",
+    "breed": "Black Bengal",
+    "price": 19500,
+    "weight": 28,
+    "age": 1,
+    "location": "Comilla",
+    "description": "High quality Black Bengal goat, famous for meat.",
+    "image": "https://images.unsplash.com/photo-1583337130417-3346a1be7dee",
+    "category": "Small Animal"
+  },
+  {
+    "id": 5,
+    "name": "Sahiwal Cow",
+    "type": "Cow",
+    "breed": "Sahiwal",
+    "price": 145000,
+    "weight": 310,
+    "age": 5,
+    "location": "Rajshahi",
+    "description": "High milk yielding Sahiwal cow, excellent for Qurbani.",
+    "image": "https://images.unsplash.com/photo-1596733430298-8d4e4e0f6b0e",
+    "category": "Large Animal"
+  },
+  {
+    "id": 6,
+    "name": "Beetal Goat",
+    "type": "Goat",
+    "breed": "Beetal",
+    "price": 32500,
+    "weight": 52,
+    "age": 3,
+    "location": "Dhaka",
+    "description": "Large sized Beetal goat with good weight.",
+    "image": "https://images.unsplash.com/photo-1626790680785-0f9c6f8f8f8f",
+    "category": "Small Animal"
+  }
+]
