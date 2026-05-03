@@ -1,10 +1,13 @@
 
 // src/app/page.jsx
 'use client';
-import Lottie from 'lottie-react';
-import qurbaniAnimation from '@/data/qurbani-animation.json';
+
 import Link from 'next/link';
 import AnimalCard from '@/components/AnimalCard';
+import Lottie from "lottie-react";
+import loadingAnimation from "@/data/loading.json";
+
+<Lottie animationData={loadingAnimation} loop />
 
 const featuredAnimals = [
   {
@@ -48,6 +51,7 @@ const featuredAnimals = [
 export default function Home() {
   return (
     <div className="min-h-screen">
+      
       {/* Professional Hero Banner */}
       <section className="relative h-screen flex items-center overflow-hidden">
         <div 
@@ -82,6 +86,7 @@ export default function Home() {
                 className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-10 py-4 rounded-2xl text-lg transition-all flex items-center justify-center gap-2"
               >
                 Browse All Animals →
+                
               </Link>
               <Link 
                 href="#featured"
@@ -93,18 +98,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
-<div className="py-16 bg-white">
-  <div className="max-w-4xl mx-auto text-center px-6">
-    <Lottie 
-      animationData={qurbaniAnimation} 
-      loop={true} 
-      className="w-80 h-80 mx-auto"
-    />
-    <h2 className="text-3xl font-bold mt-6">Qurbani 2026</h2>
-    <p className="text-gray-600 mt-3">A blessed journey with trust and care</p>
-  </div>
-</div>
+
 
       {/* Featured Animals Section - Fixed & Smooth */}
       <section id="featured" className="py-20 bg-gray-50">
@@ -117,11 +111,25 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {featuredAnimals.map((animal) => (
               <AnimalCard key={animal.id} animal={animal} />
             ))}
-          </div>
+          </div> */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+  {featuredAnimals.map((animal, index) => (
+    <div
+      key={animal.id}
+      className="opacity-0 animate-fadeUp"
+      style={{
+        animationDelay: `${index * 0.15}s`,
+        animationFillMode: "forwards",
+      }}
+    >
+      <AnimalCard animal={animal} />
+    </div>
+  ))}
+</div>
 
           <div className="text-center mt-16">
             <Link 

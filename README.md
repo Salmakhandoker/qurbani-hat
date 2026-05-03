@@ -1,60 +1,102 @@
 
-# QurbaniHat – Livestock Booking Platform
+# 🐄 QurbaniHat — Online Qurbani Animal Marketplace
 
-A modern and user-friendly livestock marketplace for Qurbani in Bangladesh. Users can browse cows and goats, view details, and book animals after authentication.
+A modern full-stack web application where users can browse, view, and book Qurbani animals (cow 🐄 & goat 🐐) easily and securely.
 
-![QurbaniHat](https://via.placeholder.com/800x400/10b981/ffffff?text=QurbaniHat)
+---
 
-## 🚀 Live Demo
-[Live Site](https://your-vercel-link.vercel.app)  
-*(Vercel এ ডিপ্লয় করার পর লিংক দিন)*
+## 🌐 Live Project
+👉 https://your-live-link.com
 
-## ✨ Key Features
+---
 
-- **Beautiful Hero Section** with Qurbani theme
-- **Featured Animals** with smooth hover effects
-- **All Animals Page** with search and price sorting
-- **Animal Details** with professional booking form
-- **Authentication** (Login/Register with Google support)
-- **My Profile** + **Update Profile** (Challenge)
-- **Lottie Animation** (Challenge)
-- **Toast Notifications**
-- **Fully Responsive** (Mobile, Tablet, Desktop)
-- **404 Not Found Page**
+## 🎯 Project Purpose
+
+QurbaniHat helps users:
+- Find healthy animals from trusted farmers
+- Compare prices and locations
+- Book animals easily online
+
+---
+
+## 🚀 Features
+
+### 🐄 Animal Marketplace
+- Browse all animals
+- Filter & sort animals
+- View detailed animal information
+
+### 🔐 Authentication System
+- User Registration
+- Login with email & password
+- Google Authentication (BetterAuth)
+
+### 👤 User Profile
+- Update profile
+- Avatar support
+
+### 🎨 UI & Animation
+- Responsive design (Mobile, Tablet, Desktop)
+- Smooth animations using **Lottie**
+- Professional card hover effects
+
+### ⚡ Performance
+- Fast loading
+- Optimized images
+- Clean UI/UX
+
+---
 
 ## 🛠️ Technologies Used
 
-- **Next.js 16** (App Router)
-- **Tailwind CSS**
-- **MongoDB** + **Mongoose**
-- **Better Auth** (Authentication + Google Login)
-- **Lottie React** (Animation)
-- **React Hot Toast** (Notifications)
-- **Lucide React** (Icons)
+### Frontend
+- Next.js 16 (App Router)
+- React.js
+- Tailwind CSS
 
-## 📁 Project Structure
-🌟 Challenges Implemented
+### Backend
+- Next.js API Routes
+- MongoDB
 
-My Profile – Shows name, photo, email
-Update Profile – Name and image update feature
-Lottie Animation – Added beautiful Qurbani animation on Home page
+### Authentication
+- BetterAuth
+- Google OAuth
 
-📋 Additional Requirements
+### Animation
+- Lottie React
 
-Toast notifications
-Loading states
-Fully responsive design
-Not-found page
-Extra section (Qurbani Tips + Lottie Animation)
+---
 
-📝 Future Improvements
+## 📁 Folder Structure
 
-Payment integration
-Admin dashboard
-Email verification
-Real-time booking status
+📸 Screenshots
+🏠 Home Page
+Hero section with animation
+Featured animals
+🐄 Animals Page
+Grid layout
+Filter & sort system
+🔐 Login Page
+Clean UI with animation
+🎯 Future Improvements
+🛒 Booking system
+💳 Payment integration
+⭐ Reviews & ratings
+📊 Admin dashboard
+👨‍💻 Author
+
+Your Name
+📧 your-email@example.com
 
 
-Made with ❤️ for Qurbani
-Author: Salma Khandoker
-Submission Date: May 2026
+⭐ Final Note
+
+This project was built as part of an assignment to demonstrate:
+
+Full-stack development skills
+Authentication system
+Clean UI/UX design
+Real-world project structure
+
+✨ Thank you for visiting this project!
+ SALMA KHANDOKER....

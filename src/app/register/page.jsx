@@ -8,7 +8,7 @@ import Link from "next/link";
 import toast from 'react-hot-toast';
 
 export default function Register() {
-  const [formData, setFormData] = useState({ name: "", email: "", password: "" });
+  const [formData, setFormData] = useState({ name: "", email: "",photo_url: "", password: "" });
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
@@ -53,6 +53,15 @@ export default function Register() {
             placeholder="Email"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            required
+            className="w-full px-5 py-3 border border-gray-300 rounded-2xl"
+          />
+          <input
+            type="photo_url"
+            name="photo"
+            placeholder="photo_url"
+            value={formData.photo_url}
+            onChange={(e) => setFormData({ ...formData, photo_url: e.target.value })}
             required
             className="w-full px-5 py-3 border border-gray-300 rounded-2xl"
           />

@@ -16,6 +16,12 @@ export default function AnimalCard({ animal }) {
           {animal.category}
         </div>
       </div>
+      {/* animation */}
+      <div className="bg-white rounded-2xl shadow-md overflow-hidden 
+  transform transition duration-300 ease-in-out 
+  hover:scale-105 hover:shadow-xl">
+
+  </div>
 
       {/* Content */}
       <div className="p-6">
@@ -29,6 +35,7 @@ export default function AnimalCard({ animal }) {
           </div>
 
           <Link 
+          
             href={`/animals/details/${animal.id}`}
             className="bg-emerald-700 hover:bg-emerald-800 text-white px-7 py-3 rounded-2xl text-sm font-medium transition-all"
           >
