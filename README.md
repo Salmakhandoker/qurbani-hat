@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# QurbaniHat – Livestock Booking Platform
 
-First, run the development server:
+A modern and user-friendly livestock marketplace for Qurbani in Bangladesh. Users can browse cows and goats, view details, and book animals after authentication.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![QurbaniHat](https://via.placeholder.com/800x400/10b981/ffffff?text=QurbaniHat)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Live Demo
+[Live Site](https://your-vercel-link.vercel.app)  
+*(Vercel এ ডিপ্লয় করার পর লিংক দিন)*
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## ✨ Key Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Beautiful Hero Section** with Qurbani theme
+- **Featured Animals** with smooth hover effects
+- **All Animals Page** with search and price sorting
+- **Animal Details** with professional booking form
+- **Authentication** (Login/Register with Google support)
+- **My Profile** + **Update Profile** (Challenge)
+- **Lottie Animation** (Challenge)
+- **Toast Notifications**
+- **Fully Responsive** (Mobile, Tablet, Desktop)
+- **404 Not Found Page**
 
-## Learn More
+## 🛠️ Technologies Used
 
-To learn more about Next.js, take a look at the following resources:
+- **Next.js 16** (App Router)
+- **Tailwind CSS**
+- **MongoDB** + **Mongoose**
+- **Better Auth** (Authentication + Google Login)
+- **Lottie React** (Animation)
+- **React Hot Toast** (Notifications)
+- **Lucide React** (Icons)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Project Structure
+🌟 Challenges Implemented
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+My Profile – Shows name, photo, email
+Update Profile – Name and image update feature
+Lottie Animation – Added beautiful Qurbani animation on Home page
 
-## Deploy on Vercel
+📋 Additional Requirements
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Toast notifications
+Loading states
+Fully responsive design
+Not-found page
+Extra section (Qurbani Tips + Lottie Animation)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+📝 Future Improvements
+
+Payment integration
+Admin dashboard
+Email verification
+Real-time booking status
+
+
+Made with ❤️ for Qurbani
+Author: Salma Khandoker
+Submission Date: May 2026
