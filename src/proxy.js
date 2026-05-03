@@ -1,24 +1,26 @@
+import dns from "node:dns";
+dns.setServers(["8.8.8.8","8.8.4.4"]);
+import { NextResponse } from "next/server";
 
-import { headers } from 'next/headers'
-import { NextResponse } from 'next/server'
+export function proxy(request) {
+  const { pathname } = request.nextUrl;
 
- 
-// This function can be marked `async` if using `await` inside
-export async function proxy(request) {
-    const session = await auth.api.getsession({
-        headers: await headers ()
+  // Basic route protection (optional)
+  if (
+    pathname.startsWith("/my-profile") ||
+    pathname.startsWith("/animals")
+  ) {
+    const user = request.cookies.get("user");
 
-    });
-    if (session) {
-        return NextResponse.redirect(new URL('/login', request.url))
+    if (!user) {
+      return NextResponse.redirect(new URL("/login", request.url));
     }
+  }
 
-//   return NextResponse.redirect(new URL('/home', request.url))
+  return NextResponse.next();
 }
- 
-// Alternatively, you can use a default export:
-// export default function proxy(request: NextRequest) { ... }
- 
+
 export const config = {
-  matcher: ["/All-Animals/:path", "/my-profile"],
-}
+  matcher: ["/my-profile"],
+};
+// "/animals/:path"

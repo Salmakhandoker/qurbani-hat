@@ -10,7 +10,7 @@
     "age": 3,
     "location": "Bogura",
     "description": "Healthy deshi cow suitable for Qurbani. Well fed with natural feed.",
-    "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96",
+    "image": "https://images.unsplash.com/photo-1601758003122-58d6b7a4e9e9?w=800",
     "category": "Large Animal"
   },
   {
@@ -23,7 +23,7 @@
     "age": 2,
     "location": "Sirajganj",
     "description": "Beautiful Jamunapari goat with excellent health and long ears.",
-    "image": "https://images.unsplash.com/photo-1587502536900-baf0c55a17c9",
+   "image":"https://loremflickr.com/600/400/cow",
     "category": "Small Animal"
   },
   {
@@ -127,7 +127,7 @@
     "age": 2,
     "location": "Rajshahi",
     "description": "Sirohi goat with excellent meat quality.",
-    "image": "https://images.unsplash.com/photo-1583337130417-3346a1be7dee",
+    "image":  "https://images.unsplash.com/photo-1560785496-3c9d27877182?w=800&auto=format&fit=crop",
     "category": "Small Animal"
   },
   {
@@ -140,7 +140,7 @@
     "age": 4,
     "location": "Munshiganj",
     "description": "Healthy Munshiganj local breed.",
-    "image": "https://www.istockphoto.com/photo/img_1780-gm647511080-117493715?utm_source=unsplash&utm_medium=affiliate&utm_campaign=srp_photos_zsr&utm_content=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fcow-img-jpg&utm_term=cow+img+jpg%3A%3Aaffiliate-layout-optim%3Acontrol%3Adb0b8178-663e-4322-8e8a-eb46bd49d6d0",
+    "image": "https://images.unsplash.com/photo-1601758064224-c3c4b57c2d73?w=800&auto=format&fit=crop",
     "category": "Large Animal"
   },
   {
@@ -153,7 +153,7 @@
     "age": 2,
     "location": "Rajshahi",
     "description": "Strong Barind goat suitable for Qurbani.",
-    "image": "https://www.istockphoto.com/photo/young-black-and-white-cow-heifer-in-a-meadow-looking-in-the-camera-gm1319467946-406328431?utm_source=unsplash&utm_medium=affiliate&utm_campaign=adp_photos_sponsored&utm_content=https%3A%2F%2Funsplash.com%2Fphotos%2Fwhite-and-brown-cow-G_oWb_hcfx8%23downloadJSON%3Dtrue&utm_term=blue%3A%3Aaffiliate-layout-optim%3Acontrol%3A82b6cd9a-f821-47ba-a688-e90fabdbba5f",
+    "image": "https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=800&auto=format&fit=crop",
     "category": "Small Animal"
   }
 ]
