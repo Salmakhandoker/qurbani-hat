@@ -13,7 +13,7 @@ const featuredAnimals = [
     breed: "Local Deshi",
     price: 125000,
     location: "Bogura",
-    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=800",
+    image: "./image/download2.jpg",
     category: "Large Animal"
   },
   {
@@ -22,7 +22,7 @@ const featuredAnimals = [
     breed: "Jamunapari",
     price: 28500,
     location: "Sirajganj",
-    image: "https://images.unsplash.com/photo-1587502536900-baf0c55a17c9?q=80&w=800",
+    image: "./image/download6.jpg",
     category: "Small Animal"
   },
   {
@@ -31,7 +31,7 @@ const featuredAnimals = [
     breed: "Red Chittagong",
     price: 98000,
     location: "Comilla",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800",
+    image: "./image/images3.jpg",
     category: "Large Animal"
   },
   {
@@ -40,7 +40,7 @@ const featuredAnimals = [
     breed: "Black Bengal",
     price: 19500,
     location: "Comilla",
-    image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=800",
+    image: "./image/download6.jpg",
     category: "Small Animal"
   }
 ];

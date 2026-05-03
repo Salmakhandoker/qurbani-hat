@@ -10,7 +10,7 @@
     "age": 3,
     "location": "Bogura",
     "description": "Healthy deshi cow suitable for Qurbani. Well fed with natural feed.",
-    "image": "https://ibb.co.com/DH5KF8bv",
+    "image": "./image/download2.jpg",
     "category": "Large Animal"
   },
   {
@@ -23,7 +23,7 @@
     "age": 2,
     "location": "Sirajganj",
     "description": "Beautiful Jamunapari goat with excellent health and long ears.",
-   "image":"https://loremflickr.com/600/400/cow",
+   "image":"./image/download6.jpg",
     "category": "Small Animal"
   },
   {
@@ -36,7 +36,7 @@
     "age": 4,
     "location": "Comilla",
     "description": "Pure Red Chittagong breed, very healthy and strong.",
-    "image": "https://ibb.co.com/yBnfRgTV",
+    "image": "./image/images3.jpg",
     "category": "Large Animal"
   },
   {
@@ -49,7 +49,7 @@
     "age": 1,
     "location": "Comilla",
     "description": "High quality Black Bengal goat, famous for tender meat.",
-    "image": "https://ibb.co.com/y25KHFd",
+    "image": "./image/download6.jpg",
     "category": "Small Animal"
   },
   {
@@ -75,7 +75,7 @@
     "age": 3,
     "location": "Dhaka",
     "description": "Large sized Beetal goat with good weight and milk.",
-    "image": "https://ibb.co.com/zTD0PM60",
+    "image": "./image/images7.jpg",
     "category": "Small Animal"
   },
   {
@@ -88,7 +88,7 @@
     "age": 4,
     "location": "Pabna",
     "description": "Strong Pabna breed cow, very popular in Bangladesh.",
-    "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96",
+    "image": "./image/download1.jpg",
     "category": "Large Animal"
   },
   {
@@ -101,7 +101,7 @@
     "age": 2,
     "location": "Bogura",
     "description": "High quality Kamdhenu goat for Qurbani.",
-    "image": "https://ibb.co.com/Kc3YmWwj",
+    "image": "./image/images8.jpg",
     "category": "Small Animal"
   },
   {
@@ -114,7 +114,7 @@
     "age": 3,
     "location": "Dhaka",
     "description": "Friesian cross breed, good for both milk and meat.",
-    "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+    "image": "https://www.google.com/imgres?q=unsplash%20cow%20%26%20goat%20pic&imgurl=https%3A%2F%2Fplus.unsplash.com%2Fpremium_photo-1667566903049-c48abf0a2414%3Ffm%3Djpg%26q%3D60%26w%3D3000%26auto%3Dformat%26fit%3Dcrop%26ixlib%3Drb-4.1.0%26ixid%3DM3wxMjA3fDB8MHxzZWFyY2h8OXx8Y293c3xlbnwwfHwwfHx8MA%253D%253D&imgrefurl=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fcows&docid=1uXj-MMqWjutDM&tbnid=eA70FEjUEl7XkM&vet=12ahUKEwiCjrKP1JyUAxV5xTgGHarJJLIQnPAOegQIcBAB..i&w=3000&h=1996&hcb=2&ved=2ahUKEwiCjrKP1JyUAxV5xTgGHarJJLIQnPAOegQIcBAB",
     "category": "Large Animal"
   },
   {
@@ -127,7 +127,7 @@
     "age": 2,
     "location": "Rajshahi",
     "description": "Sirohi goat with excellent meat quality.",
-    "image":  "https://ibb.co.com/RTWKzDKY",
+    "image":  "https://www.google.com/imgres?q=unsplash%20cow%20%26%20goat%20pic&imgurl=https%3A%2F%2Fplus.unsplash.com%2Fpremium_photo-1667566903049-c48abf0a2414%3Ffm%3Djpg%26q%3D60%26w%3D3000%26auto%3Dformat%26fit%3Dcrop%26ixlib%3Drb-4.1.0%26ixid%3DM3wxMjA3fDB8MHxzZWFyY2h8OXx8Y293c3xlbnwwfHwwfHx8MA%253D%253D&imgrefurl=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fcows&docid=1uXj-MMqWjutDM&tbnid=eA70FEjUEl7XkM&vet=12ahUKEwiCjrKP1JyUAxV5xTgGHarJJLIQnPAOegQIcBAB..i&w=3000&h=1996&hcb=2&ved=2ahUKEwiCjrKP1JyUAxV5xTgGHarJJLIQnPAOegQIcBAB",
     "category": "Small Animal"
   },
   {
@@ -140,7 +140,7 @@
     "age": 4,
     "location": "Munshiganj",
     "description": "Healthy Munshiganj local breed.",
-    "image":"https://www.vecteezy.com/free-png/cattle",
+    "image":"./image/cow.jpg",
     "category": "Large Animal"
   },
   {
@@ -153,7 +153,7 @@
     "age": 2,
     "location": "Rajshahi",
     "description": "Strong Barind goat suitable for Qurbani.",
-    "image": "https://ibb.co.com/TMpq2r37",
+    "image": "https://www.bdstall.com/details/sahiwal-cow-62986/",
     "category": "Small Animal"
   }
 ]
