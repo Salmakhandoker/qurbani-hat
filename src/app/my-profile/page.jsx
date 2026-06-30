@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import toast from "react-hot-toast";
+import Lottie from "lottie-react";
+import loadingAnimation from "@/data/loading.json";
 
 export default function MyProfile() {
   const router = useRouter();
@@ -21,8 +23,10 @@ export default function MyProfile() {
   if (isPending) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 space-y-4">
-        <span className="loading loading-spinner loading-lg text-emerald-600"></span>
-        <p className="text-slate-500 font-medium text-sm">Loading your profile...</p>
+        <div className="w-36 h-36">
+          <Lottie animationData={loadingAnimation} loop={true} />
+        </div>
+        <p className="text-slate-500 font-bold text-sm">Loading your profile...</p>
       </div>
     );
   }

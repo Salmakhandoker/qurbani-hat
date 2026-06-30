@@ -4,6 +4,8 @@
 import { useEffect, useState } from "react";
 import animalsData from "@/data/animals.json";
 import AnimalCard from "@/components/AnimalCard";
+import Lottie from "lottie-react";
+import loadingAnimation from "@/data/loading.json";
 
 export default function AllAnimals() {
   const [animals, setAnimals] = useState([]);
@@ -112,9 +114,11 @@ export default function AllAnimals() {
 
         {/* Loading Spinner */}
         {loading ? (
-          <div className="flex flex-col items-center justify-center py-32 space-y-4">
-            <span className="loading loading-spinner loading-lg text-emerald-600"></span>
-            <p className="text-slate-500 font-medium text-sm">Fetching fresh livestock listings...</p>
+          <div className="flex flex-col items-center justify-center py-20 space-y-4">
+            <div className="w-36 h-36">
+              <Lottie animationData={loadingAnimation} loop={true} />
+            </div>
+            <p className="text-slate-500 font-bold text-sm">Fetching fresh livestock listings...</p>
           </div>
         ) : (
           <>

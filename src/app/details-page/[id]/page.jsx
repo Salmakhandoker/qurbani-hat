@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import animalsData from "@/data/animals.json";
 import toast from 'react-hot-toast';
 import { authClient } from "@/lib/auth-client";
+import Lottie from "lottie-react";
+import loadingAnimation from "@/data/loading.json";
 
 export default function AnimalDetails() {
   const { id } = useParams();
@@ -71,8 +73,10 @@ export default function AnimalDetails() {
   if (sessionPending || loading) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 space-y-4">
-        <span className="loading loading-spinner loading-lg text-emerald-600"></span>
-        <p className="text-slate-500 font-medium text-sm">Loading details...</p>
+        <div className="w-36 h-36">
+          <Lottie animationData={loadingAnimation} loop={true} />
+        </div>
+        <p className="text-slate-500 font-bold text-sm">Loading details...</p>
       </div>
     );
   }
