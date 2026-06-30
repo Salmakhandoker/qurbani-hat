@@ -1,12 +1,17 @@
 
 import { betterAuth } from "better-auth";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
-import { connectDB } from "./mongodb"; // ✅ correct import
+import { connectDB } from "./mongodb"; 
+import { MongoClient } from "mongodb";
+
+const client = new MongoClient(process.env.MONGODB_URI);
+const db = client.db("qurbanihat");
 
 export const auth = betterAuth({
-  database: mongodbAdapter(async () => {
-    const conn = await connectDB();
-    return conn.connection.db; // ✅ mongoose → native db
+  database: mongodbAdapter(db, {
+    client
+    // const conn = await connectDB();
+    // return conn.connection.db; 
   }),
 
   emailAndPassword: {
