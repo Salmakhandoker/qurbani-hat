@@ -169,6 +169,36 @@ export default function AnimalDetails() {
                 </div>
               </div>
             </div>
+
+            {/* Vet Certificate Card */}
+            <div className="bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-500/20 p-6 rounded-3xl space-y-4 shadow-sm">
+              <div className="flex items-center justify-between">
+                <h3 className="font-extrabold text-slate-800 flex items-center gap-2 text-sm uppercase tracking-wider">
+                  <span>🛡️</span> Vet Health Certificate
+                </h3>
+                <span className="badge bg-emerald-600 border-none text-white text-xs font-bold px-3 py-2 rounded-full">
+                  VERIFIED FIT
+                </span>
+              </div>
+              <div className="space-y-2 text-sm text-slate-600">
+                <div className="flex justify-between border-b border-emerald-500/10 pb-1.5">
+                  <span className="font-medium text-slate-500">Inspected By:</span>
+                  <span className="font-bold text-slate-800">Dr. Aminul Islam, DVM</span>
+                </div>
+                <div className="flex justify-between border-b border-emerald-500/10 pb-1.5">
+                  <span className="font-medium text-slate-500">Vaccination Status:</span>
+                  <span className="font-bold text-emerald-700">Fully Vaccinated</span>
+                </div>
+                <div className="flex justify-between border-b border-emerald-500/10 pb-1.5">
+                  <span className="font-medium text-slate-500">Inspection Date:</span>
+                  <span className="font-bold text-slate-800">June 2026</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="font-medium text-slate-500">Certificate ID:</span>
+                  <span className="font-mono text-xs text-slate-500">QH-2026-00{animal.id}</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Right Column: Title, Details, and Booking Form */}

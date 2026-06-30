@@ -1,7 +1,7 @@
 // src/app/register/page.jsx
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import toast from 'react-hot-toast';
@@ -13,7 +13,25 @@ export default function Register() {
   const [photoUrl, setPhotoUrl] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [redirect, setRedirect] = useState("/");
   const router = useRouter();
+  const { data: session, isPending: sessionPending } = authClient.useSession();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const redir = params.get("redirect");
+      if (redir) {
+        setRedirect(redir);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!sessionPending && session) {
+      router.push(redirect);
+    }
+  }, [session, sessionPending, router, redirect]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,8 +49,11 @@ export default function Register() {
       if (error) {
         toast.error(error.message || "Registration failed", { id: loadingToast });
       } else {
-        toast.success("Registration Successful! Please login. 🎉", { id: loadingToast });
-        router.push("/login");
+        toast.success("Account Created Successfully! 🎉", { id: loadingToast });
+        router.push(redirect);
+        setTimeout(() => {
+          router.refresh();
+        }, 150);
       }
     } catch (err) {
       toast.error("Something went wrong. Please try again.", { id: loadingToast });
@@ -46,12 +67,21 @@ export default function Register() {
     try {
       await authClient.signIn.social({
         provider: "google",
-        callbackURL: "/"
+        callbackURL: redirect
       });
     } catch (err) {
       toast.error("Google authentication failed", { id: loadingToast });
     }
   };
+
+  if (sessionPending) {
+    return (
+      <div className="min-h-[85vh] flex flex-col items-center justify-center bg-slate-50 space-y-4">
+        <span className="loading loading-spinner text-emerald-600 w-12 h-12"></span>
+        <p className="text-slate-500 font-bold text-sm">Verifying session...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-[85vh] bg-slate-50 flex items-center justify-center py-16 px-4">
@@ -168,7 +198,7 @@ export default function Register() {
         {/* Link to Login */}
         <div className="text-center text-xs text-slate-500 font-semibold pt-4">
           Already have an account?{" "}
-          <Link href="/login" className="text-emerald-700 hover:underline font-bold">
+          <Link href={`/login?redirect=${encodeURIComponent(redirect)}`} className="text-emerald-700 hover:underline font-bold">
             Login Here
           </Link>
         </div>

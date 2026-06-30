@@ -13,6 +13,7 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const [redirect, setRedirect] = useState("/");
   const router = useRouter();
+  const { data: session, isPending: sessionPending } = authClient.useSession();
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -23,6 +24,12 @@ export default function Login() {
       }
     }
   }, []);
+
+  useEffect(() => {
+    if (!sessionPending && session) {
+      router.push(redirect);
+    }
+  }, [session, sessionPending, router, redirect]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -63,6 +70,15 @@ export default function Login() {
       toast.error("Google Authentication failed", { id: loadingToast });
     }
   };
+
+  if (sessionPending) {
+    return (
+      <div className="min-h-[85vh] flex flex-col items-center justify-center bg-slate-50 space-y-4">
+        <span className="loading loading-spinner text-emerald-600 w-12 h-12"></span>
+        <p className="text-slate-500 font-bold text-sm">Verifying session...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-[85vh] bg-slate-50 flex items-center justify-center py-16 px-4">
@@ -110,7 +126,7 @@ export default function Login() {
           <button
             type="submit"
             disabled={loading}
-            className="btn btn-emerald bg-emerald-750 hover:bg-emerald-800 text-white rounded-2xl w-full border-none h-12 font-bold text-sm shadow-md hover:shadow-emerald-700/10 transition-all duration-300 mt-6"
+            className="btn btn-emerald bg-emerald-700 hover:bg-emerald-800 text-white rounded-2xl w-full border-none h-12 font-bold text-sm shadow-md hover:shadow-emerald-700/10 transition-all duration-300 mt-6"
           >
             {loading ? <span className="loading loading-spinner"></span> : "Sign In"}
           </button>
@@ -149,7 +165,7 @@ export default function Login() {
         {/* Link to Register */}
         <div className="text-center text-xs text-slate-500 font-semibold pt-4">
           New to QurbaniHat?{" "}
-          <Link href="/register" className="text-emerald-700 hover:underline font-bold">
+          <Link href={`/register?redirect=${encodeURIComponent(redirect)}`} className="text-emerald-700 hover:underline font-bold">
             Create Account
           </Link>
         </div>
