@@ -1,102 +1,86 @@
-
 # 🐄 QurbaniHat — Online Qurbani Animal Marketplace
 
-A modern full-stack web application where users can browse, view, and book Qurbani animals (cow 🐄 & goat 🐐) easily and securely.
+QurbaniHat is a modern, high-performance livestock marketplace application designed for booking Qurbani cows 🐄 and goats 🐐. Users can browse livestock directory details, filter and sort by price, view veterinarian certificates, and place bookings.
 
 ---
 
-## 🌐 Live Project
-👉 https://your-live-link.com
+## 🌐 Live URL
+👉 [QurbaniHat Live Deployment](https://project-qurbanir-hat.vercel.app)
 
 ---
 
 ## 🎯 Project Purpose
 
-QurbaniHat helps users:
-- Find healthy animals from trusted farmers
-- Compare prices and locations
-- Book animals easily online
+During the Qurbani season, finding a healthy animal from a reliable source can be challenging. QurbaniHat solves this by:
+- Connecting buyers directly with pasture cattle farms.
+- Ensuring transparent weighing and veterinarian checks.
+- Eliminating middlemen commissions to provide competitive rates.
+- Providing a secure, hassle-free booking and transit delivery service.
 
 ---
 
-## 🚀 Features
+## 🚀 Key Features
 
-### 🐄 Animal Marketplace
-- Browse all animals
-- Filter & sort animals
-- View detailed animal information
+### 🐄 1. Livestock Directory & Sorting
+- Dynamic listing page with live search matching name, breed, or location.
+- Category filters to easily toggle between Cows (🐄) and Goats (🐐).
+- Instant sorting systems for price (Low → High / High → Low).
+- Fully responsive card display grid displaying animal photo, weight, age, and location.
 
-### 🔐 Authentication System
-- User Registration
-- Login with email & password
-- Google Authentication (BetterAuth)
+### 🔐 2. Better Auth & Google Authentication
+- Secure email & password signup and login database integration.
+- Custom field attributes (like profile Photo URL) saved directly to MongoDB.
+- Single-click social login using Google OAuth.
+- Complete client-side security guards redirecting unauthenticated users to login before booking.
 
-### 👤 User Profile
-- Update profile
-- Avatar support
+### 👤 3. Profile Management & Live Updates
+- Interactive profile view showing user's name, email, and photo avatar.
+- Profile update form allowing users to update their Name and Photo URL.
+- Live database updates implemented using Better Auth's standard `authClient.updateUser` API.
 
-### 🎨 UI & Animation
-- Responsive design (Mobile, Tablet, Desktop)
-- Smooth animations using **Lottie**
-- Professional card hover effects
+### 🩺 4. Secure Booking System
+- Interactive booking form on the details page.
+- Simulates real-time API submissions to `/api/booking` with simulated network delays.
+- Full form resets and custom toast messages (success/loading/error) powered by `react-hot-toast`.
 
-### ⚡ Performance
-- Fast loading
-- Optimized images
-- Clean UI/UX
-
----
-
-## 🛠️ Technologies Used
-
-### Frontend
-- Next.js 16 (App Router)
-- React.js
-- Tailwind CSS
-
-### Backend
-- Next.js API Routes
-- MongoDB
-
-### Authentication
-- BetterAuth
-- Google OAuth
-
-### Animation
-- Lottie React
+### 🐏 5. Premium Theme & UX
+- Custom 404 error page.
+- Smooth loading spinners and alert components built using Tailwind CSS & DaisyUI.
 
 ---
 
-## 📁 Folder Structure
+## 📦 Installed npm Packages
 
-📸 Screenshots
-🏠 Home Page
-Hero section with animation
-Featured animals
-🐄 Animals Page
-Grid layout
-Filter & sort system
-🔐 Login Page
-Clean UI with animation
-🎯 Future Improvements
-🛒 Booking system
-💳 Payment integration
-⭐ Reviews & ratings
-📊 Admin dashboard
-👨‍💻 Author
+The following npm packages were utilized:
+- **`next`**: React framework for App routing.
+- **`react` & `react-dom`**: Frontend library.
+- **`better-auth`**: Authentication library for modern web apps.
+- **`@better-auth/mongo-adapter`**: Better Auth adapter to connect to MongoDB collections.
+- **`mongodb`**: Official MongoDB driver.
+- **`mongoose`**: MongoDB object modeling tool.
+- **`daisyui`**: Tailwind CSS component library for layouts, buttons, and form inputs.
+- **`tailwindcss` & `autoprefixer`**: Styling engines.
+- **`react-hot-toast`**: Floating notification system.
+- **`lottie-react`**: Interactive animation rendering engine.
+- **`lucide-react`**: Flat icon pack.
+- **`bcryptjs`**: Password hashing helper.
 
-Your Name
-📧 your-email@example.com
+---
 
+## 🛠️ Environment Variables Config
 
-⭐ Final Note
+Create a `.env.local` file inside the root directory and configure the following:
+```env
+MONGODB_URI=your-mongodb-uri-string
+BETTER_AUTH_SECRET=your-better-auth-generated-secret
+BETTER_AUTH_URL=http://localhost:3000
+NEXT_PUBLIC_BETTER_AUTH_URL=http://localhost:3000
+GOOGLE_CLIENT_ID=your-google-oauth-client-id
+GOOGLE_CLIENT_SECRET=your-google-oauth-client-secret
+```
 
-This project was built as part of an assignment to demonstrate:
+---
 
-Full-stack development skills
-Authentication system
-Clean UI/UX design
-Real-world project structure
-
-✨ Thank you for visiting this project!
- SALMA KHANDOKER....
+## 👨‍💻 Author
+**Salma Khandoker**  
+*Full Stack Web Developer*
