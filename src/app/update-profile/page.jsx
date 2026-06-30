@@ -1,70 +1,116 @@
+// src/app/update-profile/page.jsx
+"use client";
 
-// src/app/my-profile/update/page.jsx
-'use client';
-
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import toast from 'react-hot-toast';
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import { authClient } from "@/lib/auth-client";
 
 export default function UpdateProfile() {
-  const [name, setName] = useState('');
-  const [image, setImage] = useState('');
   const router = useRouter();
+  const { data: session, isPending } = authClient.useSession();
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("");
+  const [updating, setUpdating] = useState(false);
 
+  // Auth Redirect Guard
   useEffect(() => {
-    const saved = localStorage.getItem('user');
-    if (saved) {
-      const u = JSON.parse(saved);
-      setName(u.name || '');
-      setImage(u.image || '');
+    if (!isPending && !session) {
+      toast.error("Please login to update your profile!");
+      router.push("/login?redirect=/update-profile");
+    } else if (session) {
+      setName(session.user.name || "");
+      setImage(session.user.image || "");
     }
-  }, []);
+  }, [session, isPending, router]);
 
-  const handleUpdate = (e) => {
+  const handleUpdate = async (e) => {
     e.preventDefault();
+    setUpdating(true);
+    const loadingToast = toast.loading("Updating your profile details...");
 
-    const currentUser = JSON.parse(localStorage.getItem('user') || '{}');
-    const updatedUser = { ...currentUser, name, image };
+    try {
+      const { data, error } = await authClient.updateUser({
+        name: name.trim(),
+        image: image.trim(),
+      });
 
-    localStorage.setItem('user', JSON.stringify(updatedUser));
-
-    toast.success("Profile Updated Successfully!");
-    router.push('/my-profile');
+      if (error) {
+        toast.error(error.message || "Failed to update profile", { id: loadingToast });
+      } else {
+        toast.success("Profile updated successfully! 🎉", { id: loadingToast });
+        router.push("/my-profile");
+        // Force router refresh so Navbar and Profile pages show updated session info
+        setTimeout(() => {
+          router.refresh();
+        }, 150);
+      }
+    } catch (err) {
+      toast.error("Something went wrong. Please try again.", { id: loadingToast });
+    } finally {
+      setUpdating(false);
+    }
   };
+
+  if (isPending) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 space-y-4">
+        <span className="loading loading-spinner loading-lg text-emerald-600"></span>
+        <p className="text-slate-500 font-medium text-sm">Loading details...</p>
+      </div>
+    );
+  }
+
+  if (!session) {
+    return null;
+  }
 
   return (
     <div className="max-w-md mx-auto px-6 py-16">
-      <div className="bg-white rounded-3xl shadow-xl p-10">
-        <h1 className="text-3xl font-bold mb-8 text-center">Update Profile</h1>
+      <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-10 space-y-6">
+        <div className="text-center space-y-2">
+          <span className="text-3xl">👤</span>
+          <h1 className="text-3xl font-black text-slate-900">Update Profile</h1>
+          <p className="text-slate-500 text-sm">Change your profile name or avatar picture</p>
+        </div>
 
-        <form onSubmit={handleUpdate} className="space-y-6">
-          <div>
-            <label className="block text-sm font-medium mb-2">Name</label>
+        <form onSubmit={handleUpdate} className="space-y-4">
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text font-bold text-slate-600">Display Name</span>
+            </label>
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-5 py-3 border border-gray-300 rounded-2xl"
               required
+              disabled={updating}
+              placeholder="Your Name"
+              className="input input-bordered w-full rounded-2xl border-slate-200 focus:outline-emerald-600 text-sm h-12"
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium mb-2">Photo URL</label>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text font-bold text-slate-600">Avatar Image URL</span>
+            </label>
             <input
-              type="text"
+              type="url"
               value={image}
               onChange={(e) => setImage(e.target.value)}
-              className="w-full px-5 py-3 border border-gray-300 rounded-2xl"
-              placeholder="./pic.jpg"
+              required
+              disabled={updating}
+              placeholder="https://domain.com/avatar.jpg"
+              className="input input-bordered w-full rounded-2xl border-slate-200 focus:outline-emerald-600 text-sm h-12"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-emerald-700 hover:bg-emerald-800 text-white py-4 rounded-2xl font-semibold text-lg"
+            disabled={updating}
+            className="btn btn-emerald bg-emerald-700 hover:bg-emerald-800 text-white rounded-2xl w-full border-none h-12 font-bold text-sm shadow-md hover:shadow-emerald-700/10 transition-all duration-300 mt-6"
           >
-            Update Information
+            {updating ? <span className="loading loading-spinner"></span> : "Update Information"}
           </button>
         </form>
       </div>
